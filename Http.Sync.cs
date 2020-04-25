@@ -226,7 +226,6 @@ namespace RestSharp
 		[Obsolete ("Use the WebRequestConfigurator delegate instead of overriding this method")]
 		protected virtual HttpWebRequest ConfigureWebRequest (string method, Uri url)
 			{
-			Action<HttpWebRequest> __CAE_Action__L__HttpWebRequest__G__;
 			var webRequest = CreateWebRequest (url);
 
 			webRequest.UseDefaultCredentials = UseDefaultCredentials;
@@ -294,7 +293,8 @@ namespace RestSharp
 
 			webRequest.ConnectionGroupName = ConnectionGroupName;
 
-			if ((__CAE_Action__L__HttpWebRequest__G__ = WebRequestConfigurator) != null) __CAE_Action__L__HttpWebRequest__G__.Invoke (webRequest);
+			if (WebRequestConfigurator != null)
+				WebRequestConfigurator.Invoke (webRequest);
 
 			return webRequest;
 			}

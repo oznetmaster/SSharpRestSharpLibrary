@@ -369,12 +369,11 @@ namespace RestSharp
 		/// <returns>This request</returns>
 		public IRestRequest AddXmlBody (object obj, string xmlNamespace)
 			{
-			IXmlSerializer __CAE_IXmlSerializer__;
 			RequestFormat = DataFormat.Xml;
 
 			if (!StringEx.IsNullOrWhiteSpace (XmlNamespace))
 				xmlNamespace = XmlNamespace;
-			else if (!StringEx.IsNullOrWhiteSpace ((__CAE_IXmlSerializer__ = XmlSerializer) == null ? null : __CAE_IXmlSerializer__.Namespace))
+			else if (!StringEx.IsNullOrWhiteSpace (XmlSerializer == null ? null : XmlSerializer.Namespace))
 				xmlNamespace = XmlSerializer.Namespace;
 
 			AddParameter (new XmlParameter ("", obj, xmlNamespace));

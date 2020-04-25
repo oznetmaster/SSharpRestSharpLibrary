@@ -30,7 +30,6 @@ namespace RestSharp.Serialization.Xml
 		{
 		protected override object GetValueFromXml (XElement root, XName name, PropertyInfo prop, bool useExactName)
 			{
-			XAttribute __CAE_XAttribute__;
 			bool isAttribute = false;
 
 			//Check for the DeserializeAs attribute on the property
@@ -46,7 +45,7 @@ namespace RestSharp.Serialization.Xml
 
 			var attributeVal = GetAttributeByName (root, name, useExactName);
 
-			return (__CAE_XAttribute__ = attributeVal) == null ? null : __CAE_XAttribute__.Value ?? base.GetValueFromXml (root, name, prop, useExactName);
+			return attributeVal == null ? null : attributeVal.Value ?? base.GetValueFromXml (root, name, prop, useExactName);
 			}
 		}
 	}

@@ -559,11 +559,8 @@ namespace RestSharp
 
 		private void AuthenticateIfNeeded (IRestClient client, IRestRequest request)
 			{
-#if !NETCF
-			__CAE_IAuthenticator__ = Authenticator;
-			if (__CAE_IAuthenticator__ != null)
-				__CAE_IAuthenticator__.Authenticate (client, request);
-#endif
+			if (Authenticator != null)
+				Authenticator.Authenticate (client, request);
 			}
 
 		private string EncodeParameters (IEnumerable<Parameter> parameters, Encoding encoding)
