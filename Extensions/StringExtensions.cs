@@ -84,9 +84,8 @@ namespace RestSharp.Extensions
 
 		public static string UrlEncode (this string input, Encoding encoding)
 			{
-			string __CAE_string__;
 			var encoded = HttpUtility.UrlEncode (input, encoding);
-			return (__CAE_string__ = encoded) == null ? null : __CAE_string__.Replace ("+", "%20");
+			return encoded == null ? null : encoded.Replace ("+", "%20");
 			}
 
 		public static string HtmlAttributeEncode (this string input)

@@ -120,8 +120,7 @@ namespace RestSharp.Deserializers
 					var attribute = (DeserializeAsAttribute)attributes.First ();
 
 					name = attribute.Name.AsNamespaced (Namespace);
-					XName __CAE_XName__;
-					isNameDefinedInAttribute = !string.IsNullOrEmpty ((__CAE_XName__ = name) == null ? null : __CAE_XName__.LocalName);
+					isNameDefinedInAttribute = !string.IsNullOrEmpty (name == null ? null : name.LocalName);
 
 					deserializeFromContent = attribute.Content;
 

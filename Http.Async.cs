@@ -284,7 +284,6 @@ namespace RestSharp
 
 		private static void GetRawResponseAsync (IAsyncResult result, Action<HttpWebResponse> callback)
 			{
-			HttpWebResponse __CAE_HttpWebResponse__;
 			HttpWebResponse raw;
 
 			try
@@ -313,8 +312,8 @@ namespace RestSharp
 
 			callback (raw);
 
-			if ((__CAE_HttpWebResponse__ = raw) != null)
-				__CAE_HttpWebResponse__.Close ();
+			if (raw != null)
+				raw.Close ();
 			}
 
 		private void ResponseCallback (IAsyncResult result, Action<HttpResponse> callback)
